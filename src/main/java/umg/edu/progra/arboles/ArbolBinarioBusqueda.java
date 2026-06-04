@@ -478,6 +478,30 @@ public class ArbolBinarioBusqueda {
         }
     }
     
+ // ============================================================
+    // EJERCICIO EXTRA 3: Diámetro del árbol
+    // ============================================================
+    public int diametro() {
+        return diametroRecursivo(this.raiz);
+    }
+
+    private int diametroRecursivo(Nodo actual) {
+        if (actual == null) {
+            return 0; 
+        }
+        
+        int altIzq = alturaRecursiva(actual.izquierdo);
+        int altDer = alturaRecursiva(actual.derecho);
+        
+        int trayectoriaActual = (altIzq + 1) + (altDer + 1);
+
+        int diametroIzq = diametroRecursivo(actual.izquierdo);
+        int diametroDer = diametroRecursivo(actual.derecho);
+
+        int maxSubarboles = diametroIzq > diametroDer ? diametroIzq : diametroDer;
+        return trayectoriaActual > maxSubarboles ? trayectoriaActual : maxSubarboles;
+    }
+    
     // ============================================================
     // COLA INTERNA (lista enlazada simple) usada para BFS.
     // Se implementa aqui para NO depender de java.util.

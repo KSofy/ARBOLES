@@ -185,5 +185,10 @@ public class Principal {
         System.out.println("=========================================");
         System.out.print("Valores en rango [15, 75]: ");
         arbol.imprimirRangoOrdenado(15, 75);
+        
+        System.out.println("\n=========================================");
+        System.out.println("PRUEBA EXTRA 3: Diámetro del Árbol");
+        System.out.println("=========================================");
+        System.out.println("El diámetro actual del árbol es: " + arbol.diametro() + " aristas.");
     }
 }
