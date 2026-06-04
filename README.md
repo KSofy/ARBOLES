@@ -233,7 +233,25 @@ mvn clean compile
 2. Ejecución Estándar (Árbol por Defecto)Para ejecutar el programa utilizando el árbol de prueba predeterminado por el docente ([50, 30, 70, 20, 40, 60, 80, 10]), utiliza:Bashmvn exec:java "-Dexec.mainClass=umg.edu.progra.arboles.Principal"
 3. Ejecución Dinámica (Ejercicio Extra 4 - Argumentos de Consola)Para construir un árbol de forma completamente personalizada desde la terminal, introduce una lista de números enteros separados por espacios al final del comando:Bashmvn exec:java "-Dexec.mainClass=umg.edu.progra.arboles.Principal" "-Dexec.args=45 23 67 12 34 89"
 
-🛠️ Descripción de Métodos Nuevos e ImplementadosMétodos Obligatoriospublic int contarNodos(): Llama a una función auxiliar recursiva que cuenta el nodo actual más la suma total de los nodos de sus subárboles izquierdo y derecho. No utiliza la variable interna tamanio.public boolean esBalanceado(): Evalúa recursivamente si la diferencia absoluta de altura entre el subárbol izquierdo y derecho de cada nodo en el árbol es menor o igual a 1.public boolean esBSTValido(): Verifica que las llaves respeten las restricciones de ordenamiento de un BST, arrastrando límites dinámicos (min y max) en pre-orden para evitar que un nodo fuera de posición burle las validaciones locales.public int ancestroComunMasBajo(int a, int b): Encuentra el nodo más profundo que es ancestro de ambos valores simultáneamente. Aplica una validación inicial de existencia y aprovecha las propiedades del BST para podar caminos de búsqueda.public void invertir(): Transforma el árbol físico en su reflejo geométrico (espejo), intercambiando los punteros izquierdo y derecho de todos los nodos mediante un recorrido recursivo en post-orden.Ejercicios Extra (Opcionales)public int kEsimoMenor(int k): Devuelve el $k$-ésimo valor más pequeño del árbol simulando un recorrido InOrden con un contador global simulado por referencia. Stop temprano al alcanzar $k$.public void imprimirRangoOrdenado(int min, int max): Imprime de manera ordenada los valores comprendidos en el intervalo cerrado [min, max]. Aplica técnicas de poda de árbol ignorando ramas completas si el dato actual desborda las fronteras.public int diametro(): Calcula el camino más largo (medido en aristas) entre dos nodos hojas cualesquiera en el árbol utilizando relaciones de altura máximas.
+---
+
+## 🛠️ Descripción de Métodos Nuevos e Implementados
+
+### Métodos Obligatorios
+
+* **`public int contarNodos()`**: Llama a una función auxiliar recursiva que cuenta el nodo actual más la suma total de los nodos de sus subárboles izquierdo y derecho. No utiliza la variable interna `tamanio`.
+* **`public boolean esBalanceado()`**: Evalúa recursivamente si la diferencia absoluta de altura entre el subárbol izquierdo y derecho de **cada nodo** en el árbol es menor o igual a 1.
+* **`public boolean esBSTValido()`**: Verifica que las llaves respeten las restricciones de ordenamiento de un BST, arrastrando límites dinámicos (`min` y `max`) en pre-orden para evitar que un nodo fuera de posición burle las validaciones locales.
+* **`public int ancestroComunMasBajo(int a, int b)`**: Encuentra el nodo más profundo que es ancestro de ambos valores simultáneamente. Aplica una validación inicial de existencia y aprovecha las propiedades del BST para podar caminos de búsqueda.
+* **`public void invertir()`**: Transforma el árbol físico en su reflejo geométrico (espejo), intercambiando los punteros `izquierdo` y `derecho` de todos los nodos mediante un recorrido recursivo en post-orden.
+
+### Ejercicios Extra (Opcionales)
+
+* **`public int kEsimoMenor(int k)`**: Devuelve el $k$-ésimo valor más pequeño del árbol simulando un recorrido `InOrden` con un contador global simulado por referencia. Stop temprano al alcanzar $k$.
+* **`public void imprimirRangoOrdenado(int min, int max)`**: Imprime de manera ordenada los valores comprendidos en el intervalo cerrado `[min, max]`. Aplica técnicas de **poda de árbol** ignorando ramas completas si el dato actual desborda las fronteras.
+* **`public int diametro()`**: Calcula el camino más largo (medido en aristas) entre dos nodos hojas cualesquiera en el árbol utilizando relaciones de altura máximas.
+
+---
 
 📊 Ejemplos de Entrada y Salida por ProblemaA continuación se detallan los resultados obtenidos en la consola al procesar el flujo sobre el árbol vivo (que sufrió modificaciones de eliminación en etapas previas):
 
