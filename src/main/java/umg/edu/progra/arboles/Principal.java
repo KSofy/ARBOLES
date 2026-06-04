@@ -180,6 +180,10 @@ public class Principal {
         System.out.println("El 1er menor es: " + arbol.kEsimoMenor(1));
         System.out.println("El 3er menor es: " + arbol.kEsimoMenor(3));
     
-    
+        System.out.println("\n=========================================");
+        System.out.println("PRUEBA EXTRA 2: Imprimir Rango Ordenado");
+        System.out.println("=========================================");
+        System.out.print("Valores en rango [15, 75]: ");
+        arbol.imprimirRangoOrdenado(15, 75);
     }
 }

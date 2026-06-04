@@ -448,6 +448,36 @@ public class ArbolBinarioBusqueda {
         
         return kEsimoMenorRecursivo(actual.derecho, k, contador);
     }
+    
+ // ============================================================
+    // EJERCICIO EXTRA 2: Imprimir rango ordenado (con poda)
+    // ============================================================
+    public void imprimirRangoOrdenado(int min, int max) {
+        imprimirRangoRecursivo(this.raiz, min, max);
+        System.out.println();
+    }
+
+    private void imprimirRangoRecursivo(Nodo actual, int min, int max) {
+        if (actual == null) {
+            return;
+        }
+
+        
+        if (actual.dato > min) {
+            imprimirRangoRecursivo(actual.izquierdo, min, max);
+        }
+
+        
+        if (actual.dato >= min && actual.dato <= max) {
+            System.out.print(actual.dato + " ");
+        }
+
+        
+        if (actual.dato < max) {
+            imprimirRangoRecursivo(actual.derecho, min, max);
+        }
+    }
+    
     // ============================================================
     // COLA INTERNA (lista enlazada simple) usada para BFS.
     // Se implementa aqui para NO depender de java.util.
