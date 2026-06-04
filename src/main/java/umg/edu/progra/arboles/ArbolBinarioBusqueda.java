@@ -416,6 +416,38 @@ public class ArbolBinarioBusqueda {
         invertirRecursivo(actual.derecho);
     }
 
+ // ============================================================
+    // EJERCICIO EXTRA 1: k-ésimo menor elemento
+    // ============================================================
+    public int kEsimoMenor(int k) {
+        if (k <= 0 || k > tamanio) {
+            throw new IllegalArgumentException("El valor de k está fuera de los límites del árbol.");
+        }
+        int[] contador = {0}; 
+        Nodo resultado = kEsimoMenorRecursivo(this.raiz, k, contador);
+        return resultado != null ? resultado.dato : -1;
+    }
+
+    private Nodo kEsimoMenorRecursivo(Nodo actual, int k, int[] contador) {
+        if (actual == null) {
+            return null;
+        }
+
+        
+        Nodo izq = kEsimoMenorRecursivo(actual.izquierdo, k, contador);
+        if (izq != null) {
+            return izq; 
+        }
+
+        
+        contador[0]++;
+        if (contador[0] == k) {
+            return actual; 
+        }
+
+        
+        return kEsimoMenorRecursivo(actual.derecho, k, contador);
+    }
     // ============================================================
     // COLA INTERNA (lista enlazada simple) usada para BFS.
     // Se implementa aqui para NO depender de java.util.

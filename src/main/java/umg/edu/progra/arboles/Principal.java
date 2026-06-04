@@ -169,5 +169,17 @@ public class Principal {
         arbol.inOrden();
         arbol.imprimirArbol();
         System.out.println("=========================================");
+    
+        System.out.println("\n=========================================");
+        System.out.println("PRUEBA EXTRA 1: k-ésimo Menor");
+        System.out.println("=========================================");
+        // Nota: Como el árbol está invertido por el problema 5, vamos a reinvertirlo para que las búsquedas tengan sentido biológico
+        arbol.invertir(); 
+        System.out.print("Árbol actual (InOrden): ");
+        arbol.inOrden();
+        System.out.println("El 1er menor es: " + arbol.kEsimoMenor(1));
+        System.out.println("El 3er menor es: " + arbol.kEsimoMenor(3));
+    
+    
     }
 }
