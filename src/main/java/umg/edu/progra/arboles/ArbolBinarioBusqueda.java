@@ -393,6 +393,28 @@ public class ArbolBinarioBusqueda {
         // Caso 3: Se bifurcan o uno es el actual -> este es el LCA
         return actual;
     }
+    
+ // ============================================================
+    // PROBLEMA 5: Espejo del árbol (inversión)
+    // ============================================================
+    public void invertir() {
+        invertirRecursivo(this.raiz);
+    }
+
+    private void invertirRecursivo(Nodo actual) {
+        if (actual == null) {
+            return; 
+        }
+
+        // Intercambio clásico usando una variable temporal
+        Nodo temporal = actual.izquierdo;
+        actual.izquierdo = actual.derecho;
+        actual.derecho = temporal;
+
+        // Propagamos los cambios recursivamente hacia los niveles inferiores
+        invertirRecursivo(actual.izquierdo);
+        invertirRecursivo(actual.derecho);
+    }
 
     // ============================================================
     // COLA INTERNA (lista enlazada simple) usada para BFS.

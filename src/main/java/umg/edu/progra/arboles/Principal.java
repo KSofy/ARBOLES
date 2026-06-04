@@ -153,5 +153,21 @@ public class Principal {
             System.out.println("Excepción capturada con éxito -> " + e.getMessage());
         }
     
+        System.out.println("\n=========================================");
+        System.out.println("PRUEBA PROBLEMA 5: Inversión Espejo");
+        System.out.println("=========================================");
+        System.out.println("--- Árbol ANTES de invertir ---");
+        System.out.print("Recorrido InOrden: ");
+        arbol.inOrden();
+        arbol.imprimirArbol();
+
+        System.out.println("\n-> Invirtiendo el árbol estructuralmente...");
+        arbol.invertir();
+
+        System.out.println("--- Árbol DESPUÉS de invertir ---");
+        System.out.print("Recorrido InOrden (debe salir invertido): ");
+        arbol.inOrden();
+        arbol.imprimirArbol();
+        System.out.println("=========================================");
     }
 }
