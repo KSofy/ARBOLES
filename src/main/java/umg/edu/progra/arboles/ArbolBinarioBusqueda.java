@@ -316,6 +316,30 @@ public class ArbolBinarioBusqueda {
         // Caso recursivo: 1 (el nodo actual) + hijos izquierdos + hijos derechos
         return 1 + contarNodosRecursivo(actual.izquierdo) + contarNodosRecursivo(actual.derecho);
     }
+    
+ // ============================================================
+    // PROBLEMA 2: ¿Está balanceado?
+    // ============================================================
+    public boolean esBalanceado() {
+        return esBalanceadoRecursivo(this.raiz);
+    }
+
+    private boolean esBalanceadoRecursivo(Nodo actual) {
+        if (actual == null) {
+            return true; 
+        }
+
+        int altIzq = alturaRecursiva(actual.izquierdo);
+        int altDer = alturaRecursiva(actual.derecho);
+
+        int diferencia = Math.abs(altIzq - altDer);
+
+        if (diferencia <= 1 && esBalanceadoRecursivo(actual.izquierdo) && esBalanceadoRecursivo(actual.derecho)) {
+            return true;
+        }
+
+        return false; 
+    }
 
     // ============================================================
     // COLA INTERNA (lista enlazada simple) usada para BFS.

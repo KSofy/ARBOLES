@@ -103,5 +103,17 @@ public class Principal {
         arbol.insertar(90);
         System.out.println("Nuevo tamanio variable: " + arbol.tamanio());
         System.out.println("Nuevo tamanio recursión: " + arbol.contarNodos());
+        
+        System.out.println("\n=========================================");
+        System.out.println("PRUEBA PROBLEMA 2: ¿Está Balanceado?");
+        System.out.println("=========================================");
+        System.out.println("¿El árbol actual está balanceado? " + arbol.esBalanceado());
+
+        
+        ArbolBinarioBusqueda arbolSecuencial = new ArbolBinarioBusqueda();
+        for (int i = 1; i <= 5; i++) {
+            arbolSecuencial.insertar(i);
+        }
+        System.out.println("¿Árbol secuencial (1 al 5) está balanceado? " + arbolSecuencial.esBalanceado());
     }
 }
