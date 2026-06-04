@@ -114,6 +114,23 @@ public class Principal {
         for (int i = 1; i <= 5; i++) {
             arbolSecuencial.insertar(i);
         }
+        
         System.out.println("¿Árbol secuencial (1 al 5) está balanceado? " + arbolSecuencial.esBalanceado());
+    
+        System.out.println("\n=========================================");
+        System.out.println("PRUEBA PROBLEMA 3: Validar BST");
+        System.out.println("=========================================");
+        System.out.println("¿El árbol de trabajo es un BST válido? " + arbol.esBSTValido());
+
+        
+        ArbolBinarioBusqueda arbolRoto = new ArbolBinarioBusqueda();
+        arbolRoto.insertar(100);
+        arbolRoto.insertar(50);
+        arbolRoto.insertar(150);
+        
+       
+        arbolRoto.getRaiz().izquierdo.derecho = new Nodo(120); 
+        
+        System.out.println("¿El árbol alterado manualmente es un BST válido? " + arbolRoto.esBSTValido());
     }
 }

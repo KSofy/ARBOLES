@@ -340,6 +340,29 @@ public class ArbolBinarioBusqueda {
 
         return false; 
     }
+    
+ // ============================================================
+    // PROBLEMA 3: Validar que sea un BST
+    // ============================================================
+    public boolean esBSTValido() {
+        return esBSTValidoRecursivo(this.raiz, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
+    private boolean esBSTValidoRecursivo(Nodo actual, int min, int max) {
+        if (actual == null) {
+            return true; // Un árbol vacío es un BST válido
+        }
+
+        // Si el dato actual se sale de los límites permitidos en esta rama, no es válido
+        if (actual.dato <= min || actual.dato >= max) {
+            return false;
+        }
+
+        // Al ir a la izquierda: el límite máximo permitido pasa a ser el dato actual
+        // Al ir a la derecha: el límite mínimo permitido pasa a ser el dato actual
+        return esBSTValidoRecursivo(actual.izquierdo, min, actual.dato) 
+            && esBSTValidoRecursivo(actual.derecho, actual.dato, max);
+    }
 
     // ============================================================
     // COLA INTERNA (lista enlazada simple) usada para BFS.
