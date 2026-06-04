@@ -12,24 +12,40 @@ package umg.edu.progra.arboles;
  */
 public class Principal {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
         ArbolBinarioBusqueda arbol = new ArbolBinarioBusqueda();
 
-        /*
-         * Insertamos estos valores para formar el siguiente BST:
-         *
-         *               50
-         *              /  \
-         *            30    70
-         *           /  \   / \
-         *          20  40 60  80
-         *         /
-         *        10
-         */
-        int[] valores = { 50, 30, 70, 20, 40, 60, 80, 10 };
-        for (int v : valores) {
-            arbol.insertar(v);
+        // ============================================================
+        // EJERCICIO EXTRA 4: Construcción dinámica desde consola (args)
+        // ============================================================
+        if (args.length > 0) {
+            System.out.println("!!! Argumentos detectados en consola. Construyendo árbol personalizado...");
+            for (String arg : args) {
+                try {
+                    int valorConsola = Integer.parseInt(arg);
+                    arbol.insertar(valorConsola);
+                } catch (NumberFormatException e) {
+                    System.out.println("Ignorando argumento no válido (no es entero): " + arg);
+                }
+            }
+        } else {
+            /*
+             * Si no hay argumentos en la terminal, usamos el arreglo por defecto del profesor
+             * para formar el siguiente BST:
+             *
+             * 50
+             * /  \
+             * 30    70
+             * /  \  /  \
+             * 20  40 60  80
+             * /
+             * 10
+             */
+            int[] valores = { 50, 30, 70, 20, 40, 60, 80, 10 };
+            for (int v : valores) {
+                arbol.insertar(v);
+            }
         }
 
         System.out.println("===== Arbol Binario de Busqueda =====");
