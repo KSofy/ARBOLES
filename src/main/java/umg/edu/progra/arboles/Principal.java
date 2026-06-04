@@ -93,5 +93,15 @@ public class Principal {
          *     bajo (LCA) entre dos valores.
          *  5. Implementar la inversion del arbol (espejo).
          */
+        System.out.println("\n=========================================");
+        System.out.println("PRUEBA PROBLEMA 1: Contar Nodos");
+        System.out.println("=========================================");
+        System.out.println("Tamanio por variable: " + arbol.tamanio());
+        System.out.println("Tamanio por recursión: " + arbol.contarNodos());
+        
+        System.out.println("-> Insertando valor de prueba: 90");
+        arbol.insertar(90);
+        System.out.println("Nuevo tamanio variable: " + arbol.tamanio());
+        System.out.println("Nuevo tamanio recursión: " + arbol.contarNodos());
     }
 }
