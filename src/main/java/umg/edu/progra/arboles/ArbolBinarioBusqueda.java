@@ -363,6 +363,36 @@ public class ArbolBinarioBusqueda {
         return esBSTValidoRecursivo(actual.izquierdo, min, actual.dato) 
             && esBSTValidoRecursivo(actual.derecho, actual.dato, max);
     }
+    
+ // ============================================================
+    // PROBLEMA 4: Ancestro común más bajo (LCA)
+    // ============================================================
+    public int ancestroComunMasBajo(int a, int b) {
+        // Validación obligatoria de existencia
+        if (!contiene(a) || !contiene(b)) {
+            throw new IllegalArgumentException("Uno o ambos valores no existen en el árbol.");
+        }
+        return buscarLCARecursivo(this.raiz, a, b).dato;
+    }
+
+    private Nodo buscarLCARecursivo(Nodo actual, int a, int b) {
+        if (actual == null) {
+            return null;
+        }
+
+        // Caso 1: Ambos valores son menores -> buscar a la izquierda
+        if (a < actual.dato && b < actual.dato) {
+            return buscarLCARecursivo(actual.izquierdo, a, b);
+        }
+
+        // Caso 2: Ambos valores son mayores -> buscar a la derecha
+        if (a > actual.dato && b > actual.dato) {
+            return buscarLCARecursivo(actual.derecho, a, b);
+        }
+
+        // Caso 3: Se bifurcan o uno es el actual -> este es el LCA
+        return actual;
+    }
 
     // ============================================================
     // COLA INTERNA (lista enlazada simple) usada para BFS.

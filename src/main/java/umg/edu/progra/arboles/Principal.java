@@ -132,5 +132,26 @@ public class Principal {
         arbolRoto.getRaiz().izquierdo.derecho = new Nodo(120); 
         
         System.out.println("¿El árbol alterado manualmente es un BST válido? " + arbolRoto.esBSTValido());
+    
+        System.out.println("\n=========================================");
+        System.out.println("PRUEBA PROBLEMA 4: LCA (Ancestro Común Más Bajo)");
+        System.out.println("=========================================");
+        
+        arbol.insertar(10);
+        arbol.insertar(40);
+        arbol.insertar(80);
+        arbol.insertar(60);
+
+        System.out.println("LCA(10, 40) -> Esperado: 30 | Resultado: " + arbol.ancestroComunMasBajo(10, 40));
+        System.out.println("LCA(10, 80) -> Esperado: 50 | Resultado: " + arbol.ancestroComunMasBajo(10, 80));
+        System.out.println("LCA(60, 80) -> Esperado: 70 | Resultado: " + arbol.ancestroComunMasBajo(60, 80));
+        
+        try {
+            System.out.print("Probando caso de error LCA(99, 10): ");
+            arbol.ancestroComunMasBajo(99, 10);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Excepción capturada con éxito -> " + e.getMessage());
+        }
+    
     }
 }
